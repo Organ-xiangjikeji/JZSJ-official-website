@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>数据资源</title>
+{% endblock %}
+{% block body %}
+    <div id="source-img-box" class="hidden">
+        {#        <img src="/static/newimg/4.jpg">#}
+        <p id="title">向己科技数据人工智能机器训练数据下载</p>
+        <b>共同促进人工智能发展</b>
+    </div>
+    <div id="open" class="container hidden">
+        <div>
+            <h1>数据开放理念</h1>
+            <p>
+                为进一步推进人工智能行业发展，服务于人工智能大数据。龙猫数据秉承推动人工智能落地的宗旨，力求通过一系列开放、开源、免费等方式促进行业发展技术提高，引导创业者积极投身人工智能行业。龙猫数据定期开放底层数据，免费提供给人工智能创业者及企业进行机器深度学习、算法训练等工作，缓解找不到合适数据模型算法不精准的困境。同时我们希望有足够的数据作为深度学习的输入，任何拥有大数据的领域，都可以找到深度学习的空间，都可以做出高质量的人工智能应用。任何有大数据的领域，都有创业的机会。</p>
+        </div>
+    </div>
+    <div id="filter-box" class="container">
+        <div class="col-lg-12 container-fluid">
+            <div class="col-lg-1"><a href="?industry=0&source={{ source.id }}&type={{ type.id }}">行业类型</a></div>
+            <div class="col-lg-11 container-fluid big-option-box">
+                <div class="col-lg-11 filter-option container-fluid">
+                    {% for item in industrys %}
+                        {% if forloop.counter < 8 %}
+                            <div>
+                                <a href="?industry={{ item.uid }}&source={{ source.id }}&type={{ type.id }}"> {{ item.name }}</a>
+                            </div>
+                        {% else %}
+                            <div>
+                                <a href="?industry={{ item.uid }}&source={{ source.id }}&type={{ type.id }}"> {{ item.name }}</a>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="col-lg-1 container-fluid">
+                    <span id="more-option"><a href="javascript:void(0)">更多</a></span>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-lg-12  container-fluid">
+            <div class="col-lg-1"><a href="?industry={{ industry.uid }}&source=0">数据来源</a></div>
+            <div class="col-lg-11 filter-option ">
+                {% for item in data_souces %}
+                    <div><a href="?industry={{ industry.uid }}&source={{ item.id }}"> {{ item.name }}</a></div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-lg-12 container-fluid">
+            <div class="col-lg-1"><a href="?industry={{ industry.uid }}&source={{ source.id }}&type=0">数据类型</a></div>
+            <div class="col-lg-11  filter-option ">
+                {% for item in data_types %}
+                    <div>
+                        <a href="?industry={{ industry.uid }}&source={{ source.id }}&type={{ item.id }}">{{ item.name }}</a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-lg-12  container-fluid">
+            <div class="col-lg-1">数据大小</div>
+            <div class="col-lg-11 filter-option">
+                <div>
+                    <a> KB </a>
+                </div>
+                <div>
+                    <a> MB</a>
+                </div>
+                <div>
+                    <a> G</a>
+                </div>
+                <div>
+                    <a> GB</a>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-lg-12 container-fluid">
+            <div class="col-lg-1">数据状态</div>
+            <div class="col-lg-11  filter-option">
+
+                <div>
+                    <a> 原始数据</a>
+                </div>
+                <div>
+                    <a> 标注数据</a>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="col-lg-12 container-fluid"></div>
+
+    </div>
+
+    <div id='data-set' class="container" style="margin-top: 40px">
+
+        <div class="container-fluid col-lg-8">
+            <div class="col-lg-12  container-fluid">
+                <div class="col-lg-1" id="all-data" style="padding-left: 8px">全部</div>
+                <div class="col-lg-11  filter-option ">
+                    {% if industry %}
+                        <div><a>{{ industry }}</a></div>
+                    {% endif %}
+                    {% if source %}
+                        <div><a>{{ source }}</a></div>
+                    {% endif %}
+                    {% if type %}
+                        <div><a>{{ type }}</a></div>
+                    {% endif %}
+                    <div class="col-lg-2 pull-right">共{{ data_set.count }}条数据</div>
+
+                </div>
+            </div>
+            <div class="data-attr col-lg-12"></div>
+            <div class="data-list col-lg-12">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <td>数据名称</td>
+                        <td>访问量</td>
+                        <td>下载量</td>
+                    </tr>
+                    </thead>
+                    <tbody> {% for item in data_set %}
+                        <tr>
+                            <td>{{ item.name }}</td>
+                            <td>{{ item.pageviews }}</td>
+                            <td>{{ item.downloads }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+
+                </table>
+                {% if data_set.count == 0 %}
+                    <h1 style="color:red ;text-align: center">抱歉没有相关数据</h1>
+
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-lg-4" id="ranking-box" style="border: 1px solid black;height: 400px;text-align: center">
+            <h1>下载排行榜</h1>
+            <div id="ranking-list">
+                {% for data in data_set_ranking %}
+                    <div class="data-detail">
+
+                        <p><span class="pull-left"><span class="top3">{{ forloop.counter }}</span><a class=" data-name"
+                                                                                                     href="#">{{ data.name }}</a></span><span
+                                class="pull-right downloads">下载量:{{ data.downloads }}</span></p>
+                    </div>
+                {% endfor %}
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
+{% block script %}
+    <script type="text/javascript">
+        $('#more-option').click(function () {
+            var hidden_divs = $(this).parent().siblings('.filter-option').children('div');
+            for (var i = 0; i < hidden_divs.length; i++) {
+                if ($(hidden_divs[i]).hasClass('hidden')) {
+                    $(hidden_divs[i]).removeClass('hidden');
+                }
+                else {
+                    if (i > 7) {
+                        $(hidden_divs[i]).addClass('hidden');
+
+                    }
+                }
+
+            }
+        });
+    </script>
+{% endblock %}

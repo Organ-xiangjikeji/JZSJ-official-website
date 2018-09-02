@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>关于我们</title>
+{% endblock %}
+{% block body %}
+    <div id="team" class="container-fluid">
+        <div id="team-intro" class="container">
+            团队介绍
+        </div>
+        <div id="team-detail" class="container">
+            团队使命
+        </div>
+
+    </div>
+    <div id="contacts" class="container col-lg-5" style="margin-top: 50px;  ">
+        <div class="col-sm-7 col-sm-offset-2">
+            <label>数据采集 线下团队 资源互换</label>
+            <p>联系人：谭先生</p>
+            <p>联系电话：xxxx-xxxx-xxx
+            </p>
+            <p>Email：harry@xjkj.com
+            </p>
+        </div>
+        <div class="col-sm-7 col-sm-offset-2">
+            <label>数据采集 线下团队 资源互换</label>
+            <p>联系人：张女士</p>
+            <p>联系电话：xxxx-xxxx-xxx
+            </p>
+            <p>Email：Brant@xjkj.com
+            </p>
+        </div>
+
+    </div>
+    <div id="map" class="container col-lg-offset-5">
+        <iframe src="/map/"></iframe>
+    </div>
+
+{% endblock %}

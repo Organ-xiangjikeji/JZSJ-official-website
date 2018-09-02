@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>首页</title>
+{% endblock %}
+{% block body %}
+    <div class="container-fluid" id="carousel-box">
+        <div id="myCarousel" class="carousel slide col-lg-12  " data-ride="carousel">
+            <!-- 轮播介绍 -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            </ol>
+            <div class="carousel-inner col-lg-12">
+                <div class="item active">
+                    <img class="img-responsive" src="/static/imgs/index1.png" alt="专业的服务商">
+                    <div id="contact-box">
+                        <p>精准数据</p>
+                        <hr>
+                        <p id="index-slogon">专业数据服务商</p>
+                        <p>提供准确快捷的数据采集相关服务和人工数</p>
+                        <div class="btn"><a href="/contact/">开启数据服务</a></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="container-fluid strength-box">
+        <!-- 优势介绍 -->
+        <h1>我们的优势</h1>
+        <div class="col-lg-4 container-fluid ">
+            <img src="/static/newimg/4.jpg" class="col-xs-4">
+            <div class="col-lg-8">
+                <p style="font-weight: bold">品 质 卓 越</p>
+                <p>严格先进的质量控制体系，完善的审核机制保证了超高的标注准确率和数据采集质量</p>
+            </div>
+        </div>
+        <div class="col-lg-4 container-fluid simg">
+            <img src="/static/newimg/4.jpg" class="col-xs-4">
+            <div class="col-lg-8">
+                <p style="font-weight: bold">价 格 优 势</p>
+                <p> 低成本策略提供高质量全面的标注服务，从个人到企业数据抓取提供合理定价</p>
+            </div>
+        </div>
+        <div class="col-lg-4 container-fluid simg">
+            <img src="/static/newimg/4.jpg" class="col-xs-4">
+            <div class="col-lg-8">
+                <p style="font-weight: bold">优 质 服 务</p>
+                <p> 优质方案，专人服务，我们作为数据管家为您保驾护航，让服务的整个流程无可挑剔</p>
+            </div>
+        </div>
+        <div class="col-lg-4 container-fluid simg">
+            <img src="/static/newimg/4.jpg" class="col-xs-4">
+            <div class="col-lg-8">
+                <p style="font-weight: bold">高 覆 盖 率</p>
+                <p>千人标注员，近百家标注团队，我们业务涵盖全国二十多个省份，超过千人数量 </p>
+            </div>
+        </div>
+        <div class="col-lg-4 container-fluid simg">
+            <img src="/static/newimg/4.jpg" class="col-xs-4">
+            <div class="col-lg-8">
+                <p style="font-weight: bold">专 业 可 靠</p>
+                <p> 专业团队，高效个性化数据服务，为您解决意料之外的难题，打造殿堂级专属数据服务</p>
+            </div>
+        </div>
+        <div class="col-lg-4 container-fluid simg">
+            <img src="/static/newimg/4.jpg" class="col-xs-4">
+            <div class="col-lg-8">
+                <p style="font-weight: bold">高 速 响 应</p>
+                <p> 海量的标注人员，专业高效的工程师，不断提升效率，缩短整个项目周期，让业务实现无延时。</p>
+            </div>
+        </div>
+    </div>
+    <div class="container service-box">
+        <!-- 服务的公司 -->
+        <h1> 我们正在为他们服务 </h1>
+        <div class="log-box container-fluid col-lg-12">
+            <div class="logo-block col-lg-3"></div>
+            <div class="logo-block col-lg-3"></div>
+
+            <div class="logo-block col-lg-3"></div>
+
+            <div class="logo-block col-lg-3"></div>
+
+            <div class="logo-block col-lg-3"></div>
+
+            <div class="logo-block col-lg-3"></div>
+            <div class="logo-block col-lg-3"></div>
+            <div class="logo-block col-lg-3"></div>
+
+        </div>
+    </div>
+    <div id="service" class="container-fluid">
+        <div id="service-process">
+
+            <div class="container-fluid" id="service-box">
+                <div class="title col-md-5"><p>如何定制您的专属服务</p>
+                    <p><a>订制服务类型</a></p></div>
+
+                <div id="service-type" class="col-md-7">
+                    <div class="container-fluid">
+                        <div class=" container-fluid col-sm-1"><a>语音</a></div>
+                        <div class=" container-fluid col-sm-1"><a>图片</a></div>
+                        <div class=" container-fluid col-sm-1"><a>文本</a></div>
+                        <div class=" container-fluid col-sm-1"><a>其他</a></div>
+                    </div>
+                    <div style="border: whitesmoke solid 1px" id="voice-box">
+                        语音采集：方言语类、语音内容、场景类别等
+                        语音标注：噪音标注(ASR)、发音人角色标注等
+                    </div>
+                </div>
+            </div>
+        </div>
+        {#        <img src="/static/imgs/service-back.jpg">#}
+    </div>
+    <div class="scence-box container">
+        <!-- 服务的公司 -->
+        <h1> 应用场景 </h1>
+        <div class="log-box container-fluid">
+            <div class="scence-block col-lg-4">
+                <p>图片标记</p>
+                <img src="">
+            </div>
+            <div class="scence-block col-lg-4">
+                <p> 语音标识</p>
+                <img src="">
+            </div>
+            <div class="scence-block col-lg-4">
+                <p> 文本识别 </p>
+                <img src="">
+            </div>
+            <div class="scence-block col-lg-4">
+                <p> 图片采集</p>
+                <img src="">
+            </div>
+            <div class="scence-block col-lg-4">
+                <p> 文本抓取</p>
+                <img src="">
+            </div>
+            <div class="scence-block col-lg-4">
+                <p> 视频爬取</p>
+                <img src="">
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

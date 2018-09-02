@@ -1,0 +1,179 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>服务与案例</title>
+{% endblock %}
+{% block body %}
+
+    <div class="container-fluid" id="img-header">
+{#        <img src="/static/imgs/spage.jpg">#}
+          <div class="title">
+              <h1>数据标注与数据抓取</h1>
+
+          <p>致力打造一流的数据服务商</p></div>
+    </div>
+    <div id="service-type" class="container-fluid">
+         <div class="col-lg-3 col-sm-4 col-lg-offset-3 col-sm-offset-4 box-c box-active" id="mark-box" ><p><a href="javscript:void(0)">数据标注</a></p></div>
+        <div class="col-lg-3 col-md-3  col-sm-4 box-c" id="spider-box" ><p><a href="javscript:void(0)">数据抓取</a></p></div>
+    </div>
+    <div class="container-fluid  service mark-box" id="mark-box-detail">
+        <div class="container-fluid service-type">
+            <div class="col-lg-4 service-img left sl ">
+                <img src="/static/newimg/3.jpg">
+            </div>
+            <div class="col-lg-5 col-lg-offset-3 service-detail right sl ">
+                <p><b>标注团队规模庞大</b></p>
+                <p>
+                现与合作的数据专业团队近百家，个人标注人员千人，已操作今日头条、火山视频、搜狗等相关外包项目，标注队伍会不断扩充，拥有稳定的稳定数据标注生产源
+                </p>
+            </div>
+        </div>
+        <div class="container-fluid service-type">
+            <div class="col-lg-7 service-detail left sl">
+                <p><b>标准化管理</b></p>
+                <p>
+                    我们拥有标准化、流程化的项目操作管理体系，定期培训标注人员和质检人员，实行全方位检测监督，确保高质量数据输出。
+                </p>
+            </div>
+            <div class="col-lg-4 col-lg-offset-1 service-img right sl">
+                <img src="/static/newimg/3.jpg">
+            </div>
+        </div>
+        <div class="container-fluid service-type">
+            <div class="col-lg-4 service-img left sl">
+                <img src="/static/newimg/3.jpg">
+            </div>
+            <div class="col-lg-5 col-lg-offset-3 service-detail pull-right right sl">
+                <p><b>安全可靠</b></p>
+                <p>
+                    数据采取严格的保密措施，安全可靠的服务让您不用担心数据泄露等问题
+                </p>
+            </div>
+        </div>
+        <div class="container-fluid service-type">
+            <div class="col-lg-7 service-detail left sl">
+                <p><b>响应速度快</b></p>
+                <p>
+                    平台专人对接，从提交需求到交付，全程高效协作，工作人员执行效率高，保证让您业务不延时
+                </p>
+            </div>
+
+            <div class="col-lg-4 col-lg-offset-1  service-img right sl">
+                <img src="/static/newimg/3.jpg">
+            </div>
+        </div>
+    </div>
+     <div class="container-fluid  service spider-box hidden" id="spider-box-detail">
+        <div class="container-fluid service-type">
+            <div class="col-lg-4 service-img left sl hidden">
+                <img src="/static/newimg/3.jpg">
+            </div>
+            <div class="col-lg-5 col-lg-offset-3 service-detail right sl hidden">
+                <p><b>抓取数据类型多样</b></p>
+                <p>
+                    电商、企业数据、新闻、金融股票、交通、微博、公众号、视频、图片等，帮助您了解各行各业市场情况，利用数据把握消费热点，挖掘数据价值
+                </p>
+            </div>
+        </div>
+        <div class="container-fluid service-type">
+            <div class="col-lg-7 service-detail left sl">
+                <p><b>智能采集方式</b></p>
+                <p>
+                    UA切换、多种验证码破解、大容量代理IP池调取。无论是Web网站页面还是App数据，都能顺利突破反爬采集到数据，满足您的各种采集需求
+                </p>
+            </div>
+            <div class="col-lg-4 col-lg-offset-1 service-img right sl">
+                <img src="/static/newimg/3.jpg">
+            </div>
+        </div>
+        <div class="container-fluid service-type">
+            <div class="col-lg-4 service-img left sl">
+                <img src="/static/newimg/3.jpg">
+            </div>
+            <div class="col-lg-5 col-lg-offset-3 service-detail pull-right right sl">
+                <p><b>存储方式灵活</b></p>
+                <p>
+                  支持存储方式有csv文件、excle默认xlsx文件、txt文件、JSON、XML以及数据库等。
+                </p>
+            </div>
+        </div>
+        <div class="container-fluid service-type">
+            <div class="col-lg-7 service-detail left sl">
+                <p><b>高效先进技术</b></p>
+                <p>
+                   专业的爬虫工程师搭配专业的爬取技术，采用分布式、多线程和集群爬虫技术，加速分解任务量，最大化提升效率，为您节省更多时间
+                </p>
+            </div>
+
+            <div class="col-lg-4 col-lg-offset-1  service-img right sl">
+                <img src="/static/newimg/3.jpg">
+            </div>
+        </div>
+            <div class="container-fluid service-type">
+            <div class="col-lg-4 service-img left sl">
+                <img src="/static/newimg/3.jpg">
+            </div>
+            <div class="col-lg-5 col-lg-offset-3 service-detail pull-right right sl">
+                <p><b>专属定制</b></p>
+                <p>
+                 不需要写代码，不需要使用任何的软件，无论是企业，还是个人，将需要爬取的目标网站和你感兴趣的内容告诉我们，我们为您量身定做爬虫程序，帮助您轻松获取数据。
+                </p>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+{% block script %}
+    <script>
+    $(document).ready(function () {
+        changebox();
+
+    });
+        function changebox() {
+            $('.box-c').click(function () {
+                $(this).addClass('box-active');
+                var class_name = '.'+$(this).attr('id');
+                var next_class_name = '.'+$(this).siblings('.box-c').attr('id');
+                $(class_name).removeClass('hidden');
+                $(next_class_name).addClass('hidden');
+                $(this).siblings('.box-c').removeClass('box-active');
+            });
+        }
+
+        $(window).on('scroll', function () {
+            sl();
+        });
+
+        function sl() {
+            $('.left').each(
+                function () {
+                    if ($(this).hasClass('sl')) {
+                        var a = $(document).scrollTop();
+                        var b = $(this).offset().top;
+                        if (b < a + 550 & $(this).hasClass('sl') & !$(this).parent().parent().hasClass('hidden')) {
+                            $(this).removeClass('hidden');
+                            $(this).removeClass('sl');
+                            $(this).animate({left: '100px'}, 2000);
+                        }
+                    }
+                    ;
+                }
+            );
+            $('.right').each(
+                function () {
+                    if ($(this).hasClass('sl')) {
+                        var a = $(document).scrollTop();
+                        var b = $(this).offset().top;
+
+                        if (b < a + 700 & $(this).hasClass('sl') & !$(this).parent().parent().hasClass('hidden')) {
+                            $(this).removeClass('sl');
+                            $(this).removeClass('hidden');
+                            $(this).animate({right: '100px'}, 2000);
+                        }
+                    }
+                    ;
+                }
+            );
+        }
+
+    </script>
+{% endblock %}

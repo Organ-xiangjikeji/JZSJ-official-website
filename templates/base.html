@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+        <title>首页</title>
+    {% endblock %}
+    <link href="/static/plugins/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/static/js/jquery-3.2.1.min.js"></script>
+    <script src="/static/plugins/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <link href="/static/css/xycss.css" rel="stylesheet">
+</head>
+<body>
+
+
+{#    <header class="container">#}
+{#        <header class="container-fluid">#}
+<nav class="navbar navbar-default container-fluid navbar-fixed-top" role="navigation">
+    {#                <div class="container-fluid col-lg-12">#}
+    <div class="navbar-header col-lg-3">
+        <a class="navbar-brand" href="/index/">精准数据 – AI数据服务商</a>
+    </div>
+    <div class="col-lg-8 pull-right" style="text-align: right">
+        <ul class="nav navbar-nav pull-right">
+            <li style="display: inline-block"><a href="/index/">首页</a></li>
+            <li style="display: inline-block"><a href="/cases/">产品服务 </a></li>
+            <li style="display: inline-block"><a href="/free_data/">数据集下载</a></li>
+            <li style="display: inline-block"><a href="/job/">工作机会</a></li>
+            <li style="display: inline-block"><a href="/about/">公司介绍</a></li>
+        </ul>
+    </div>
+    {#                </div>#}
+</nav>
+{#        </div>#}
+{#    </header>#}
+{% block body %}
+{% endblock %}
+<div id="side-bar">
+    <div class="consult"><img src="/static/imgs/qq1.jpg">
+        {#            QQ咨询#}
+        <div class="consult-detail hidden">
+            联系方式 wwwwwww
+        </div>
+    </div>
+    <div class="consult">
+        <img src="/static/imgs/phone1.jpg">
+        {#            电话咨询#}
+        <div class="consult-detail hidden">
+            联系方式 wwwwwww
+        </div>
+    </div>
+
+
+</div>
+<footer>
+    <div id="footer" class="container-fluid">
+        <div class="container col-lg-offset-1">
+            <div class="col-lg-3 col-sm-3">
+                <h4 style="margin-bottom: 20px">精准数据 </h4>
+                <p><a href="/cases/">备案号</a></p>
+
+            </div>
+            <div class="col-lg-3 col-sm-3">
+                <h4 style="margin-bottom: 20px">联系我们</h4>
+                <p><a href="/contact/">服务协议</a></p>
+                <p><a>隐私申明</a></p>
+                <p><a>法律申明</a></p>
+            </div>
+            <div class="col-lg-3 col-sm-3">
+                <h4 style="margin-bottom: 20px">联系方式</h4>
+
+
+            </div>
+            <div class="col-lg-3 col-sm-3">
+                <h4 style="margin-bottom: 20px">电子邮箱：thy_0417@163.com</h4>
+
+
+            </div>
+        </div>
+
+
+    </div>
+</footer>
+
+<script type="text/javascript">
+    $('.consult').hover(function () {
+        $(this).children('.consult-detail').removeClass('hidden');
+    }, function () {
+        $(this).children('.consult-detail').addClass('hidden');
+
+    })
+</script>
+{% block script %}
+{% endblock %}
+</body>
+</html>

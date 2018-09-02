@@ -1,0 +1,564 @@
+/*!
+ * xyindex css
+ */
+body {
+    margin: 0px;
+    padding: 0px;
+    /*background: linear-gradient(255deg, #9999FF, #66CCCC, #336699, #003366);*/
+
+    font-family: 微软雅黑;
+}
+
+.navbar a {
+    color: whitesmoke !important;
+}
+
+body > nav {
+    background: linear-gradient(255deg, #000000,#245580);
+    border-bottom-width: 0px !important;
+    background-size: 100% !important;
+}
+
+nav > div .container-fluid {
+    margin: 0px !important;
+    padding: 0px !important;
+
+}
+
+.hl {
+    color: whitesmoke;
+    font-size: 20px;
+}
+
+.navbar-brand {
+    font-size: 20px;
+    font-family: 微软雅黑;
+}
+
+.navbar-header {
+    font-size: 30px;
+}
+
+.navbar {
+    padding: 0px;
+    margin: 0px;
+}
+
+#carousel-box {
+    /*margin-top: -10px;*/
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 0px;
+    margin-top: 0px;
+
+}
+
+#contact-box {
+    position: absolute;
+    top: 15%;
+    left: 30%;
+    color: white;
+
+}
+
+#contact-box a {
+    text-decoration: none;
+    color: white;
+}
+
+#contact-box p {
+    font-size: 30px;
+    opacity: 0.8;
+    font-weight: lighter;
+}
+
+#contact-box div {
+    padding: 0px;
+    height: 40px;
+    width: 200px;
+    line-height: 40px;
+    margin-top: 20px;
+    background: linear-gradient(255deg, #2b669a, #5bc0de);
+
+}
+
+#index-slogon {
+    font-size: 50px !important;
+}
+
+#myCarousel {
+    padding: 0px;
+    margin: 0px;
+}
+
+.carousel-inner {
+    margin: 0px;
+    padding: 0px;
+}
+
+.strength-box div img {
+    height: 100px;
+}
+
+.item {
+    margin: 0px;
+    padding: 0px;
+}
+
+.strength-box div {
+    margin-bottom: 20px;
+}
+
+.strength-box {
+    padding: 20px 10px 20px 10px;
+    background: whitesmoke;
+    text-align: center;
+
+}
+
+.strength-box h1 {
+    margin-bottom: 50px;
+}
+
+.logo-block {
+    height: 160px;
+    float: left;
+    border: 1px lightgrey solid;
+}
+
+.service-box {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+}
+
+.log-box {
+    margin-top: 50px;
+}
+
+#myCarousel div div img {
+    height: 500px;
+    width: 100%;
+}
+
+.scence-box {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.scence-block {
+    text-align: center;
+    margin-top: 50px;
+    border: gray 1px solid;
+    padding: 10px;
+}
+
+.scence-block img {
+    height: 200px;
+    width: 100%;
+}
+
+.scence-block p {
+    position: absolute;
+    top: 45%;
+    left: 40%;
+    font-size: 20px;
+}
+
+#footer {
+    opacity: 0.9;
+    margin-top: 100px;
+    background: linear-gradient(255deg, #000000, #333333);
+    padding-top: 30px;
+    color: #CCCCFF;
+
+    padding-bottom: 30px;
+}
+
+#record {
+    text-align: center;
+}
+
+#footer div a {
+    text-decoration: none;
+    color: darkgray;
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+#footer div h4 {
+    color: darkgray;
+    margin-bottom: 20px;
+}
+
+#footer div span {
+    color: darkgray;
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+#service {
+    background: #336666;
+    opacity: 0.7;
+    text-align: center;
+    padding: 0px;
+    margin-top: 50px;
+    height: 500px;
+    position: relative;
+
+}
+
+#service-box .title {
+    font-size: 40px;
+    color: white;
+    font-family: 新宋体;
+
+}
+
+#service-box .title p a {
+    font-size: 30px;
+
+}
+
+#service-box {
+    margin-top: 100px;
+    color: white;
+    font-size: 20px;
+}
+
+#service-box a {
+    color: white;
+    text-decoration: none;
+}
+
+#service-type div {
+    text-align: left;
+    padding: 0px;
+}
+
+#service-type div div {
+    margin-right: 10px;
+    text-align: center;
+}
+
+#service-type div span {
+    margin-right: 10px;
+
+}
+
+/*#service img {*/
+/*margin: 0px;*/
+/*height: 100%;*/
+/*width: 100%;*/
+/*opacity: 0.3;*/
+/*z-index: -1;*/
+/*position: absolute;*/
+/*top: 0px;*/
+/*left: 0px;*/
+
+/*}*/
+
+#img-header {
+    margin-top: -10px;
+    padding: 0px;
+    height: 500px;
+    text-align: center;
+    width: 100%;
+    color: white;
+    background: linear-gradient(255deg, #000000, darkblue);
+
+    position: relative;
+}
+
+#img-header .title {
+    position: absolute;
+    top: 30%;
+    left: 38%;
+    height: auto;
+}
+
+#img-header .title h {
+    font-size: 40px;
+
+}
+
+#img-header .title p {
+    margin-top: 20px;
+    font-size: 20px;
+
+}
+
+#img-header img {
+    margin: 0px;
+    padding: 0px;
+    height: 400px;
+    width: 100%;
+    margin-top: 0px;
+
+}
+
+#service-type {
+    margin-top: 0px;
+    background: #CCCCCC;
+    /*height: 60px;*/
+    opacity: 0.8;
+}
+
+#service-type div {
+    text-align: center;
+    font-size: 20px;
+    color: black;
+    line-height: 60px;
+}
+#filter-box{
+    padding-top: 20px;
+    margin-top: 80px;
+    border: 1px solid gray;
+}
+.filter-option{
+
+}
+.service-type {
+    margin-bottom: 50px;
+    height: 400px;
+    margin-top: 50px;
+}
+.big-option-box{
+    padding: 0px;
+}
+#more-option a{
+    text-decoration: none;
+}
+.filter-option  div{
+display:inline-block;
+    text-align: center;
+    font-size: 10px;
+    width:auto;
+    height: 30px;
+    margin-right: 20px;
+}
+.box-c a {
+    color: black;
+    text-decoration: none;
+}
+
+.box-active a {
+    color: red;
+}
+
+.service-img img {
+    height: 200px;
+    width: 80%;
+}
+
+div .service-detail p {
+    width: 70%;
+}
+
+.service-detail {
+    text-align: center;
+    line-height: 30px;
+}
+
+#side-bar {
+    position: fixed;
+    right: 0px;
+    top: 40%;
+}
+
+.consult {
+    height: 50px;
+    width: 50px;
+    margin-bottom: 20px;
+    position: relative;
+    font-size: 10px;
+}
+
+.consult-detail {
+    position: absolute;
+
+    color: blue;
+    right: 50px;
+}
+
+.consult img {
+    height: 100%;
+    width: 100%;
+}
+
+#source-img-box {
+    width: 100%;
+    height: 500px;
+    padding: 0px;
+    background: linear-gradient(255deg, #5bc0de, darkblue);
+
+    position: relative;
+}
+
+#source-img-box img {
+    width: 100%;
+    height: 400px;
+    margin-top: -5px;
+}
+
+#title {
+    position: absolute;
+    font-size: 35px;
+    font-weight: bold;
+    top: 30%;
+    left: 30%;
+}
+
+#source-img-box b {
+    position: absolute;
+    top: 45%;
+    left: 30%;
+    color: #333300;
+}
+
+#open {
+    margin-top: 50px;
+    height: 200px;
+    background: lightgrey;
+}
+
+#data-box > div {
+    margin-top: 20px;
+    padding: 0px;
+    text-align: center;
+
+}
+
+.type-title {
+    font-size: 20px;
+}
+
+.type-title .pull-right {
+    font-size: 15px;
+}
+
+#data-box a {
+    text-decoration: none;
+
+}
+
+.data-list {
+    font-size: 15px;
+}
+
+#data-type hr {
+    margin-top: 50px;
+    color: gray;
+}
+
+#ranking-box {
+    background: lightgrey;
+    min-height: 500px;
+    padding: 20px;
+}
+
+#ranking-list {
+    padding: 10px 20px 10px 20px;
+}
+
+.data-detail {
+    min-height: 20px;
+}
+
+.top3 {
+
+    background: #FF9999;
+}
+
+p span span {
+    margin-right: 10px;
+    width: 20px;
+    display: inline-block;
+}
+
+#data-type {
+    height: 300px;
+}
+
+.job-box {
+    border: 1px solid #99CC99;
+    margin-top: 100px;
+}
+
+.job-box div {
+    height: 300px;
+    border-right: 1px solid #99CC99;
+    margin-top: 50px;
+    font-size: 30px;
+}
+
+.job-box .job-title {
+    text-align: center;
+}
+
+#team div {
+    margin-top: 20px;
+    font-size: 30px;
+    line-height: 200px;
+    text-align: center;
+}
+
+#team-intro {
+
+    height: 300px;
+    width: 100%;
+    border: 1px solid #009966;
+}
+
+#team-detail {
+    height: 500px;
+
+    width: 100%;
+    border: 1px solid #336633;
+}
+
+#map {
+    margin-top: 50px;
+
+}
+
+iframe {
+    text-align: center;
+    width: 60%;
+    height: 300px;
+}
+
+.form-group {
+    margin-top: 20px;
+}
+
+.form-group input {
+    height: 50px;
+}
+
+form button {
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 50px;
+}
+
+.form-box {
+    margin-top: 80px;
+    text-align: center;
+    margin-bottom: 100px;
+    padding-bottom: 50px;
+}
+
+form {
+    padding: 10px 10px 30px 10px;
+}
+
+form textarea {
+    min-height: 100px;
+}
+
+#contacts div {
+    padding: 10px;
+    background: #CCCCCC;
+    margin-bottom: 40px;
+}
