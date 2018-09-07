@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录页面</title>
+    <link href="/static/plugins/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/static/js/jquery-3.2.1.min.js"></script>
+    <script src="/static/plugins/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <link href="/static/css/xycss.css" rel="stylesheet">
+</head>
+<body style="background:lightblue">
+<div class=" container-fluid"
+     style="position:relative;padding:10px 0px 10px 0px;text-align: center;color: white;min-height: 120px">
+    <div style="position: absolute;top: 0px;width: 100%;height: 100%;opacity: 0.2;background:darkgrey" onclick="alert('hho')" ></div>
+    <div style="position: absolute;top: 20px;width: 100%;height: 100%;">
+        <p style="font-size: 30px;letter-spacing:10px"><a href="/index/" style="text-decoration: none">精准数据</a></p>
+    <p style="font-size: 20px">立即注册试用，为您提供更精确的数据</p>
+    </div>
+
+</div>
+<div class="container col-lg-4 col-lg-offset-4 reg-box">
+
+    <form class="form form-horizontal">
+        {% csrf_token %}
+
+        <div class="form-group container-fluid">
+            <div class="col-sm-12">
+                <input class="form-control col-sm-5" placeholder="手机号" name="phone" required="required">
+           <span class="pull-left" style="color: red"></span>
+            </div>
+        </div>
+        <div class="form-group  container-fluid">
+            <div class="col-sm-8"><input class="form-control col-sm-5" placeholder="验证码" name="vcode"
+                                         required="required">
+                        <span class="pull-left" style="color: red"></span>
+            </div>
+            <div class="col-sm-4">
+                <img id="codeimg" style="position: relative">
+            </div>
+        </div>
+        <div class="form-group  container-fluid">
+            <input id="vcode-key" name="vcode-key" class="hidden" value="" required="required">
+            <div class="col-sm-8"><input class="form-control col-sm-5" placeholder="手机验证码" name="pcode"
+                                         required="required">
+                            <span class="pull-left" style="color: red"></span>
+
+
+            </div>
+            <div id="send-pcode" class="col-sm-4 ">
+             <a href="javascript:void(0)" style="color: white;text-decoration: none">  发送验证码</a>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <input id="rsubmit" class="btn btn-success container-fluid" style="width: 90%" value="提交">
+        </div>
+    </form>
+</div>
+<div class="c1 hidden">
+
+</div>
+<div class="c2 hidden" style="text-align: center">
+    <button class="pull-right btn btn-default" id="cancel">取消
+
+    </button>
+    <div id="warnning-msg" style="margin-top:20px;color:red;font-size: 20px"></div>
+</div>
+
+</body>
+<script type="text/javascript" src="/static/js/xjkj.js">
+
+</script>
+
+<script type="text/javascript">
+    function bind_send_pcode() {
+        $('#send-pcode').click(function () {
+              $('input[name="pcode"]').removeClass('warning');
+              $('input[name="pcode"]').siblings('span').text('');
+                 if (check_reg_input()&check_vcode()& checkphone()) {
+            var vkey = $('#vcode-key').val();
+            var vcode = $('input[name="vcode"]').val();
+            var csrf = $('input[name="csrfmiddlewaretoken"]').val();
+            var phone = $('input[name="phone"]').val();
+            var data = {
+                'vkey': vkey,
+                'vcode': vcode,
+                'phone': phone,
+                'csrfmiddlewaretoken': csrf,
+
+            };
+            $.ajax({
+                url: '/api/vcode_check/',
+                type: 'POST',
+                data: data,
+                dataType: 'json',
+                success: function (arg) {
+                    if (arg.status == 0) {
+                       console.log('已发送验证码');
+                       /*写发送代码*/
+                    }
+                    else {
+                        init_vcode();
+                        $('#warnning-msg').text(arg.msg);
+                          $('.c1').removeClass('hidden');
+                        $('.c2').removeClass('hidden');
+                    }
+
+                }
+
+            })
+
+        }
+
+        });
+    }
+    bind_send_pcode();
+    $('#rsubmit').click(function () {
+
+        if (check_input() &check_vcode()& checkphone()) {
+            var vkey = $('#vcode-key').val();
+            var vcode = $('input[name="vcode"]').val();
+            var csrf = $('input[name="csrfmiddlewaretoken"]').val();
+            var phone = $('input[name="phone"]').val();
+            var data = {
+                'vkey': vkey,
+                'vcode': vcode,
+                'phone': phone,
+                'csrfmiddlewaretoken': csrf,
+
+            };
+
+            $.ajax({
+                url: '/register/',
+                type: 'POST',
+                data: data,
+                dataType: 'json',
+                success: function (arg) {
+                    if (arg.status == 0) {
+                         $('#success-model').removeClass('hidden');
+                            $('.c1').removeClass('hidden');
+                            setTimeout(function () {
+                                window.history.back(-1);
+                                $('#success-model').add('hidden');
+                            $('.c1').addClass('hidden');
+                            },1000)
+                    }
+                    else {
+                        $('#warnning-msg').text(arg.msg);
+                          $('.c1').removeClass('hidden');
+                        $('.c2').removeClass('hidden');
+
+
+                    }
+
+                }
+
+            })
+
+        }
+    });
+</script>
+</html>

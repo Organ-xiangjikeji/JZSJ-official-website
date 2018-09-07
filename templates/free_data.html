@@ -4,7 +4,7 @@
 {% endblock %}
 {% block body %}
     <div id="source-img-box" class="hidden">
-        {#        <img src="/static/newimg/4.jpg">#}
+
         <p id="title">向己科技数据人工智能机器训练数据下载</p>
         <b>共同促进人工智能发展</b>
     </div>
@@ -17,115 +17,215 @@
     </div>
     <div id="filter-box" class="container">
         <div class="col-lg-12 container-fluid">
-            <div class="col-lg-1"><a href="?industry=0&source={{ source.id }}&type={{ type.id }}">行业类型</a></div>
+            <div class="col-lg-1"><a
+                    href="?industry=0&sub_industry={{ myquery.sub_industry.id }}&source={{ myquery.source.id }}&type={{ myquery.type.id }}&status={{ myquery.status }}&size={{ myquery.size }}&province={{ myquery.province.id }}&dys={{ myquery.dys }}">行业类型</a>
+            </div>
             <div class="col-lg-11 container-fluid big-option-box">
                 <div class="col-lg-11 filter-option container-fluid">
-                    {% for item in industrys %}
-                        {% if forloop.counter < 8 %}
-                            <div>
-                                <a href="?industry={{ item.uid }}&source={{ source.id }}&type={{ type.id }}"> {{ item.name }}</a>
-                            </div>
-                        {% else %}
-                            <div>
-                                <a href="?industry={{ item.uid }}&source={{ source.id }}&type={{ type.id }}"> {{ item.name }}</a>
-                            </div>
-                        {% endif %}
+                    {% for item in myquery.industrys %}
+                        <div class="dropdown container-fluid">
+                            <span><a
+                                    href="?industry={{ item.uid }}&source={{ myquery.source.id }}&type={{ myquery.type.id }}&status={{ myquery.status }}&size={{ myquery.size }}&dys={{ myquery.dys }}&province={{ myquery.province.id }}">{{ item }} </a></span>
+                            {% if item.subindustry_set.all %}
+                                <div class="dropdown-content hidden container-fluid">
+                                    {% for sub in item.subindustry_set.all %}
+                                        <p class="container-fluid"><a
+                                                href="?sub_industry={{ sub.id }}&source={{ myquery.source.id }}&type={{ myquery.type.id }}&status={{ myquery.status }}&size={{ myquery.size }}&province={{ myquery.province.id }}&dys={{ myquery.dys }}">{{ sub }}</a>
+                                        </p>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
                     {% endfor %}
                 </div>
                 <div class="col-lg-1 container-fluid">
-                    <span id="more-option"><a href="javascript:void(0)">更多</a></span>
+                    <span id="more-option"><a href="javascript:void(0)">收起</a>
+                    <span class="glyphicon glyphicon-menu-down hidden " style="color:darkgray" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-menu-up" style="color:darkgray" aria-hidden="true"></span>
+</span>
+
                 </div>
 
             </div>
         </div>
 
+
         <div class="col-lg-12  container-fluid">
-            <div class="col-lg-1"><a href="?industry={{ industry.uid }}&source=0">数据来源</a></div>
-            <div class="col-lg-11 filter-option ">
-                {% for item in data_souces %}
-                    <div><a href="?industry={{ industry.uid }}&source={{ item.id }}"> {{ item.name }}</a></div>
-                {% endfor %}
+            <div class="col-lg-1"><a
+                    href="?industry={{ myquery.industry.uid }}&sub_industry={{ myquery.sub_industry.id }}&source=0&status={{ myquery.status }}&size={{ myquery.size }}&province={{ myquery.province.id }}&type={{ myquery.type.id }}&dys={{ myquery.dys }}">数据来源</a>
+            </div>
+            <div class="col-lg-11  big-option-box">
+                <div class="col-lg-11 filter-option container-fluid">
+                    {% for item in myquery.data_sources %}
+                        <div class="dropdown">
+                            <a href="?industry={{ myquery.industry.uid }}&sub_industry={{ myquery.sub_industry.id }}&source={{ item.id }}&status={{ myquery.status }}&type={{ myquery.type.id }}&size={{ myquery.size }}&province={{ myquery.province.id }}&dys={{ myquery.dys }}"> {{ item.name }}</a>
+
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
         <div class="col-lg-12 container-fluid">
-            <div class="col-lg-1"><a href="?industry={{ industry.uid }}&source={{ source.id }}&type=0">数据类型</a></div>
-            <div class="col-lg-11  filter-option ">
-                {% for item in data_types %}
+            <div class="col-lg-1"><a
+                    href="?industry={{ myquery.industry.uid }}&sub_industry={{ myquery.sub_industry.id }}&source={{ myquery.source.id }}&type=0&status={{ myquery.status }}&size={{ myquery.size }}&province={{ myquery.province.id }}&dys={{ myquery.dys }}">数据类型</a>
+            </div>
+            <div class="col-lg-11   big-option-box">
+                <div class="col-lg-11 filter-option container-fluid">
+                    {% for item in myquery.data_types %}
+                        <div>
+                            <a href="?industry={{ myquery.industry.uid }}&sub_industry={{ myquery.sub_industry.id }}&source={{ myquery.source.id }}&type={{ item.id }}&status={{ myquery.status }}&province={{ myquery.province.id }}&dys={{ myquery.dys }}&size={{ myquery.size }}">{{ item.name }}</a>
+
+
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12  container-fluid">
+            <div class="col-lg-1"><a
+                    href="?industry={{ myquery.industry.uid }}&sub_industry={{ myquery.sub_industry.id }}&source={{ myquery.source.id }}&type={{ myquery.type.id }}&status={{ myquery.status }}&dys={{ myquery.dys }}&size=0&province={{ myquery.province.id }}">数据大小</a>
+            </div>
+            <div class="col-lg-11  big-option-box">
+                <div class="col-lg-11 filter-option container-fluid">
+                    {% for size in myquery.sizes %}
+                        <div>
+                            <a href="?industry={{ myquery.industry.uid }}&sub_industry={{ myquery.sub_industry.id }}&source={{ myquery.source.id }}&type={{ myquery.type.id }}&status={{ myquery.status }}&dys={{ myquery.dys }}&size={{ size |slice:'0:1' | first }}&province={{ myquery.province.id }}">{{ size |slice:'1:2' | first }}</a>
+                        </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-lg-12 container-fluid">
+            <div class="col-lg-1">
+                <a href="?industry={{ myquery.industry.uid }}&sub_industry={{ myquery.sub_industry.id }}&source={{ myquery.source.id }}&type={{ myquery.type.id }}&status=0&size={{ myquery.size }}&province={{ myquery.province.id }}&dys={{ myquery.dys }}">数据状态</a>
+            </div>
+            <div class="col-lg-11   big-option-box">
+                <div class="col-lg-11 filter-option container-fluid">
+
                     <div>
-                        <a href="?industry={{ industry.uid }}&source={{ source.id }}&type={{ item.id }}">{{ item.name }}</a>
+                        <a href="?industry={{ myquery.industry.uid }}&sub_industry={{ myquery.sub_industry.id }}&source={{ myquery.source.id }}&type={{ myquery.type.id }}&status=1&size={{ myquery.size }}&province={{ myquery.province.id }}&dys={{ myquery.dys }}">
+                            原始数据</a>
                     </div>
-                {% endfor %}
+                    <div>
+                        <a href="?industry={{ myquery.industry.uid }}&sub_industry={{ myquery.sub_industry.id }}&source={{ myquery.source.id }}&type={{ myquery.type.id }}&status=2&size={{ myquery.size }}&province={{ myquery.province.id }}&dys={{ myquery.dys }}">
+                            标注数据</a>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-lg-12  container-fluid">
-            <div class="col-lg-1">数据大小</div>
-            <div class="col-lg-11 filter-option">
-                <div>
-                    <a> KB </a>
-                </div>
-                <div>
-                    <a> MB</a>
-                </div>
-                <div>
-                    <a> G</a>
-                </div>
-                <div>
-                    <a> GB</a>
-                </div>
 
+        <div class="col-lg-12 container-fluid">
+            <div class="col-lg-1">
+                <a href="?industry={{ myquery.industry.uid }}&sub_industry={{ myquery.sub_industry.id }}&source={{ myquery.source.id }}&type={{ myquery.type.id }}&status={{ myquery.status }}&dys=0&size={{ myquery.size }}&province={{ myquery.province.id }}">数据年份</a>
+            </div>
+            <div class="col-lg-11   big-option-box">
+                <div class="col-lg-11 filter-option container-fluid">
+                    {% for dys in myquery.years %}
+                        <div>
+                            <a href="?industry={{ myquery.industry.uid }}&sub_industry={{ myquery.sub_industry.id }}&source={{ myquery.source.id }}&type={{ myquery.type.id }}&status={{ myquery.status }}&dys={{ dys |slice:'0:1' | first }}&size={{ myquery.size }}&province={{ myquery.province.id }}">{{ dys |slice:'1:2' | first }}</a>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
         <div class="col-lg-12 container-fluid">
-            <div class="col-lg-1">数据状态</div>
-            <div class="col-lg-11  filter-option">
-
-                <div>
-                    <a> 原始数据</a>
+            <div class="col-lg-1">
+                <a href="?industry={{ myquery.industry.uid }}&sub_industry={{ myquery.sub_industry.id }}&source={{ myquery.source.id }}&type={{ myquery.type.id }}&status={{ myquery.status }}&dys={{ myquery.dys }}&province=0&size={{ myquery.size }}">区域范围</a>
+            </div>
+            <div class="col-lg-11  big-option-box">
+                <div class="col-lg-11 filter-option container-fluid">
+                    {% for province in myquery.provinces %}
+                        <div>
+                            <a href="?industry={{ myquery.industry.uid }}&sub_industry={{ myquery.sub_industry.id }}&source={{ myquery.source.id }}&type={{ myquery.type.id }}&status={{ myquery.status }}&dys={{ myquery.dys }}&province={{ province.id }}&size={{ myquery.size }}">{{ province }}</a>
+                        </div>
+                    {% endfor %}
                 </div>
-                <div>
-                    <a> 标注数据</a>
-                </div>
-
-
             </div>
         </div>
-
-        <div class="col-lg-12 container-fluid"></div>
-
     </div>
-
-    <div id='data-set' class="container" style="margin-top: 40px">
-
-        <div class="container-fluid col-lg-8">
-            <div class="col-lg-12  container-fluid">
-                <div class="col-lg-1" id="all-data" style="padding-left: 8px">全部</div>
+<div class="sadfasdfasd">
+{{ request.cookies }}
+{% for item in request.session.filters %}
+    {{ item }}----{{ item.id }}
+{% endfor %}
+</div>
+    <div class="container " id="display-box">
+        <div class="container-fluid col-lg-8 " id="data-list">
+            <div class="col-lg-12  container-fluid " id="all-data">
+                <div class="col-lg-1" style="padding-left: 8px">全部</div>
                 <div class="col-lg-11  filter-option ">
-                    {% if industry %}
-                        <div><a>{{ industry }}</a></div>
-                    {% endif %}
-                    {% if source %}
-                        <div><a>{{ source }}</a></div>
-                    {% endif %}
-                    {% if type %}
-                        <div><a>{{ type }}</a></div>
-                    {% endif %}
-                    <div class="col-lg-2 pull-right">共{{ data_set.count }}条数据</div>
+                    {% if myquery.industry %}
+                        <div><a>{{ myquery.industry }}</a>
 
+                            <a href="?industry=0&sub_industry={{ myquery.sub_industry.id }}&source={{ myquery.source.id }}
+                        &type={{ myquery.type.id }}&status={{ myquery.status }}&dys={{ myquery.dys }}
+                        &province={{ myquery.province.id }}&size={{ myquery.size }}">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+                            
+                        </div>
+                    {% endif %}
+
+                    {% if myquery.sub_industry %}
+                        <div><a>{{ myquery.sub_industry }}</a>
+                            <a href="?industry={{ myquery.industry.uid }}&sub_industry=0&source={{ myquery.source.id }}&type={{ myquery.type.id }}&status={{ myquery.status }}&dys={{ myquery.dys }}&province={{ myquery.province.id }}&size={{ myquery.size }}"><span
+                                    class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+                            >>
+                        </div>
+                    {% endif %}
+                    {% if myquery.source %}
+                        <div><a>{{ myquery.source }}</a>
+                            <a href="?industry={{ myquery.industry.uid }}&sub_industry={{ myquery.sub_industry.id }}&source=0&type={{ myquery.type.id }}&status={{ myquery.status }}&dys={{ myquery.dys }}&province={{ myquery.province.id }}&size={{ myquery.size }}"><span
+                                    class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></div>
+                    {% endif %}
+                    {% if myquery.type %}
+                        <div><a>{{ myquery.type }}</a>
+                            <a href="?industry={{ myquery.industry.uid }}&sub_industry={{ myquery.sub_industry.id }}&source={{ myquery.source.id }}&type=0&status={{ myquery.status }}&dys={{ myquery.dys }}&province={{ myquery.province.id }}&size={{ myquery.size }}"><span
+                                    class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></div>
+                    {% endif %}
+                    {% if myquery.province %}
+                        <div><a>{{ myquery.province }}</a><a
+                                href="?industry={{ myquery.industry.uid }}&sub_industry={{ myquery.sub_industry.id }}&source={{ myquery.source.id }}&type={{ myquery.type.id }}&status={{ myquery.status }}&dys={{ myquery.dys }}&province=0&size={{ myquery.size }}"><span
+                                class="glyphicon glyphicon-remove" aria-hidden="true"  style="color: gainsboro"></span></a></div>
+                    {% endif %}
+                    {% if myquery.status %}
+
+                        <div><a>{{ myquery.status_text }}</a>
+                            <a href="?industry={{ myquery.industry.uid }}&sub_industry={{ myquery.sub_industry.id }}&source={{ myquery.source.id }}&type={{ myquery.type.id }}&status=0&dys={{ myquery.dys }}&province={{ myquery.province.id }}&size={{ myquery.size }}"><span
+                                    class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+                        </div>
+                    {% endif %}
+                    {% if myquery.dys %}
+                        <div><a>{{ myquery.dys_text }}</a><a
+                                href="?industry={{ myquery.industry.uid }}&sub_industry={{ myquery.sub_industry.id }}&source={{ myquery.source.id }}&type={{ myquery.type.id }}&status={{ myquery.status }}&province={{ myquery.province.id }}&size={{ myquery.size }}&dys=0"><span
+                                class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></div>
+                    {% endif %}
+                    {% if myquery.size %}
+                        <div><a>{{ myquery.size_text }}</a>
+                            <a href="?industry={{ myquery.industry.uid }}&sub_industry={{ myquery.sub_industry.id }}&source={{ myquery.source.id }}&type={{ myquery.type.id }}&status={{ myquery.status }}&dys={{ myquery.dys }}&province={{ myquery.province.id }}&size=0"><span
+                                    class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></div>
+                    {% endif %}
+
+                    <div class="col-lg-2 pull-right"><a href="/free_data">清空</a></div>
+
+                    <div class="col-lg-2 pull-right">共{{ pg.queryset.count }}{% if not pg %}0{% endif %}条数据</div>
                 </div>
             </div>
-            <div class="data-attr col-lg-12"></div>
-            <div class="data-list col-lg-12">
+            <div class=" col-lg-12">
                 <table class="table">
                     <thead>
                     <tr>
+                        <td>序号</td>
                         <td>数据名称</td>
                         <td>访问量</td>
                         <td>下载量</td>
                     </tr>
                     </thead>
-                    <tbody> {% for item in data_set %}
+                    <tbody> {% for item in pg.query_list %}
                         <tr>
-                            <td>{{ item.name }}</td>
+                            <td>{{ forloop.counter }}</td>
+                            <td><a href="/data/{{ item.uid }}">{{ item.name }}</a></td>
                             <td>{{ item.pageviews }}</td>
                             <td>{{ item.downloads }}</td>
                         </tr>
@@ -133,35 +233,179 @@
                     </tbody>
 
                 </table>
-                {% if data_set.count == 0 %}
-                    <h1 style="color:red ;text-align: center">抱歉没有相关数据</h1>
-
+                {% if pg.query_list.count == 0 or not pg %}
+                    <div id="no-data" style="margin-top: 50px;text-align: center">
+                        <h4 style="color:red ;text-align: center">抱歉没有相关数据</h4>
+                        <p style="color: blue"><a href="/contact">更多数据订制请联系我们</a></p>
+                    </div>
                 {% endif %}
             </div>
-        </div>
-        <div class="col-lg-4" id="ranking-box" style="border: 1px solid black;height: 400px;text-align: center">
-            <h1>下载排行榜</h1>
-            <div id="ranking-list">
-                {% for data in data_set_ranking %}
-                    <div class="data-detail">
+            <div class="col-lg-12 pagination"
+                 style="bottom: 0px;left:0px;text-align: center;margin-bottom: 0px;margin-top: 50px">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        {% if pg.tp %}
+                            <li>
+                                <a href="?industry={{ myquery.industry.uid }}&sub_industry={{ myquery.sub_industry.id }}&source={{ myquery.source.id }}&type={{ myquery.type.id }}&province={{ myquery.province.id }}&page=1&status={{ myquery.status }}&dys={{ myquery.dys }}"
+                                   aria-label="Previous">
+                                    <span aria-hidden="true">首页</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% if pg.blp %}
+                            <li>
+                                <a href="?industry={{ myquery.industry.uid }}&sub_industry={{ myquery.sub_industry.id }}&source={{ myquery.source.id }}&type={{ myquery.type.id }}&province={{ myquery.province.id }}&page={{ pg.blp }}&status={{ myquery.status }}&dys={{ myquery.dys }}"
+                                   aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                        {% else %}
 
-                        <p><span class="pull-left"><span class="top3">{{ forloop.counter }}</span><a class=" data-name"
-                                                                                                     href="#">{{ data.name }}</a></span><span
-                                class="pull-right downloads">下载量:{{ data.downloads }}</span></p>
-                    </div>
-                {% endfor %}
+                            <li class="disabled">
+                                <a href="#"
+                                   aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% if pg.tp == 1 or not pg.tp %}
+                            <li class="disabled">
+                                <a href="#"
+                                   aria-label="Previous">
+                                    <span aria-hidden="true">上一页</span>
+                                </a>
+                            </li>
+                        {% else %}
+
+                            <li>
+                                <a href="?industry={{ myquery.industry.uid }}&sub_industry={{ myquery.sub_industry.id }}&source={{ myquery.source.id }}&type={{ myquery.type.id }}&province={{ myquery.province.id }}&page={{ pg.rp }}&status={{ myquery.status }}&dys={{ myquery.dys }}"
+                                   aria-label="Previous">
+                                    <span aria-hidden="true">上一页</span>
+                                </a>
+                            </li>
+                        {% endif %}
 
 
+                        {% for pc in pg.p_list %}
+                            {% if pc == pg.tp %}
+                                <li><a class="active" style="background: lightslategray"
+                                       href="?industry={{ myquery.industry.uid }}&sub_industry={{ myquery.sub_industry.id }}&source={{ myquery.source.id }}&type={{ myquery.type.id }}&province={{ myquery.province.id }}&status={{ myquery.status }}&page={{ pc }}&dys={{ myquery.dys }}">{{ pc }}</a>
+                                </li>
+                            {% else %}
+                                <li>
+                                    <a href="?industry={{ myquery.industry.uid }}&sub_industry={{ myquery.sub_industry.id }}&source={{ myquery.source.id }}&type={{ myquery.type.id }}&province={{ myquery.province.id }}&status={{ myquery.status }}&page={{ pc }}&dys={{ myquery.dys }}">{{ pc }}</a>
+                                </li>
+                            {% endif %}
+
+                        {% endfor %}
+
+
+                        {% if pg.tp == pg.pcount or not pg.tp %}
+
+                            <li class="disabled">
+                                <a href="#"
+                                   aria-label="Next">
+                                    <span aria-hidden="true">下一页</span>
+                                </a>
+                            </li>
+
+                        {% else %}
+                            <li>
+                                <a href="?industry={{ myquery.industry.uid }}&sub_industry={{ myquery.sub_industry.id }}&source={{ myquery.source.id }}&type={{ myquery.type.id }}&province={{ myquery.province.id }}&status={{ myquery.status }}&page={{ pg.np }}&dys={{ myquery.dys }}"
+                                   aria-label="Next">
+                                    <span aria-hidden="true">下一页</span>
+                                </a>
+                            </li>
+                        {% endif %}
+
+                        {% if pg.brp %}
+                            <li>
+                                <a href="?industry={{ myquery.industry.uid }}&sub_industry={{ myquery.sub_industry.id }}&source={{ myquery.source.id }}&type={{ myquery.type.id }}&province={{ myquery.province.id }}&page={{ pg.brp }}&status={{ myquery.status }}&dys={{ myquery.dys }}"
+                                   aria-label="Previous">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        {% else %}
+
+                            <li class="disabled">
+                                <a href="#"
+                                   aria-label="Previous">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% if pg.tp %}
+                            <li>
+                                <a href="?industry={{ myquery.industry.uid }}&sub_industry={{ myquery.sub_industry.id }}&source={{ myquery.source.id }}&type={{ myquery.type.id }}&province={{ myquery.province.id }}&page={{ pg.pcount }}&status={{ myquery.status }}&dys={{ myquery.dys }}"
+                                   aria-label="Previous">
+                                    <span aria-hidden="true">尾页</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </nav>
             </div>
         </div>
+        <div class="col-lg-4">
+            <div id="ranking-box">
+                <h3>下载排行榜</h3>
+                <div id="ranking-list" class="container-fluid">
+                    {% for data in myquery.ranking_list %}
+                        {% if forloop.counter < 4 %}
+                            <div class="col-sm-12">
+                                <p><span class="pull-left"><span class="top3">{{ forloop.counter }}</span>
+                            <a class=" data-name" href="/data/{{ data.uid }}">{{ data.name }}</a></span>
+                                    <span class="pull-right downloads">下载量:{{ data.downloads }}</span></p>
+                            </div>
+                        {% else %}
+                            <div class="col-sm-12">
+                                <p><span class="pull-left"><span>{{ forloop.counter }}</span>
+                            <a class=" data-name" href="/data/{{ data.uid }}">{{ data.name }}</a></span>
+                                    <span class="pull-right downloads">下载量:{{ data.downloads }}</span></p>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+
+                </div>
+            </div>
+            <div id="custom-made">
+                <h2>精准数据</h2>
+                <h4><a href="/contact">专属订制马上预定</a></h4>
+            </div>
+        </div>
+
     </div>
-
-
-
 {% endblock %}
 {% block script %}
     <script type="text/javascript">
+        $(".dropdown").hover(function () {
+            $(this).children('div .dropdown-content').removeClass('hidden');
+
+        }, function () {
+            $(this).children('div .dropdown-content').addClass('hidden');
+
+        });
         $('#more-option').click(function () {
+               var down = $('#more-option').children('.glyphicon-menu-down');
+               var up = $('#more-option').children('.glyphicon-menu-up');
+            if ($('#more-option').children('a').text() == '展开') {
+                $('#more-option').children('a').text('收起');
+                if (up.hasClass('hidden')){
+                    up.removeClass('hidden');
+                    down.addClass('hidden');
+                }
+
+
+
+            }
+            else {
+                $('#more-option').children('a').text('展开');
+                 if (down.hasClass('hidden')){
+                    up.addClass('hidden');
+                    down.removeClass('hidden');
+                }
+
+            }
             var hidden_divs = $(this).parent().siblings('.filter-option').children('div');
             for (var i = 0; i < hidden_divs.length; i++) {
                 if ($(hidden_divs[i]).hasClass('hidden')) {
@@ -176,5 +420,14 @@
 
             }
         });
+        $('#col').mouseover(function () {
+            console.log(this);
+            $(this).siblings('ul').addClass('in');
+        });
+        $('#col').mouseleave(function () {
+            $(this).siblings('ul').removeClass('in');
+
+        });
+
     </script>
 {% endblock %}

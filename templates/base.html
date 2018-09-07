@@ -27,33 +27,40 @@
             <li style="display: inline-block"><a href="/free_data/">数据集下载</a></li>
             <li style="display: inline-block"><a href="/job/">工作机会</a></li>
             <li style="display: inline-block"><a href="/about/">公司介绍</a></li>
+            <li style="display: inline-block"> <a>{{ request.session.user | slice:":3" }}****{{ request.session.user | slice:"-4:" }} </a></li>
         </ul>
     </div>
-    {#                </div>#}
+
 </nav>
-{#        </div>#}
-{#    </header>#}
+
 {% block body %}
 {% endblock %}
+
 <div id="side-bar">
     <div class="consult"><img src="/static/imgs/qq1.jpg">
-        {#            QQ咨询#}
         <div class="consult-detail hidden">
-            联系方式 wwwwwww
+           <p>咨询QQ</p>
+           <p>43232323</p>
+
+          <button class="btn"><a href="/contact/">提交需求</a></button>
         </div>
     </div>
     <div class="consult">
         <img src="/static/imgs/phone1.jpg">
         {#            电话咨询#}
         <div class="consult-detail hidden">
-            联系方式 wwwwwww
+              <p>客服电话</p>
+        <p>18233333333</p>
+
+          <button class="btn"><a href="/contact/">提交需求</a></button>
         </div>
     </div>
 
 
 </div>
-<footer>
-    <div id="footer" class="container-fluid">
+<footer id="footer" class="container-fluid">
+    <div id="footer-back"></div>
+
         <div class="container col-lg-offset-1">
             <div class="col-lg-3 col-sm-3">
                 <h4 style="margin-bottom: 20px">精准数据 </h4>
@@ -79,7 +86,9 @@
         </div>
 
 
-    </div>
+
+
+
 </footer>
 
 <script type="text/javascript">

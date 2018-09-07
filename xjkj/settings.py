@@ -36,9 +36,11 @@ INSTALLED_APPS = [
 	'django.contrib.messages',
 	'django.contrib.staticfiles',
 	'web.apps.WebConfig',
+	'staff'
 ]
 
 MIDDLEWARE = [
+	'web.common.mymiddleware.Throttle',
 	'django.middleware.security.SecurityMiddleware',
 	'django.contrib.sessions.middleware.SessionMiddleware',
 	'django.middleware.common.CommonMiddleware',
@@ -116,3 +118,73 @@ STATICFILES_DIRS = (
 MEDIA_URL = "/media/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+REDIS_ADDR = '127.0.0.1'
+REDIS_PORT = 6379
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '%(asctime)s [%(threadName)s:%(thread)d] [%(name)s:%(lineno)d] [%(levelname)s]- %(message)s',
+            'datefmt': "%d/%b/%Y %H:%M:%S"
+        },
+    },
+    'handlers': {
+        'console':{
+            'level':'INFO',
+            'class':'logging.StreamHandler',
+            'formatter': 'verbose'
+        },
+        'file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR + '/logs/', 'all.log'),
+            'formatter': 'verbose'
+        },
+        'email': {
+            'level': 'ERROR',
+            'class': 'django.utils.log.AdminEmailHandler',
+            'include_html' : True,
+        }
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console', 'file', 'email'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+    },
+}
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'http://127.0.0.1:6379/2',
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        },
+    },
+  'vcode': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'http://127.0.0.1:6379/0',
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        },
+    },
+'user': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'http://127.0.0.1:6379/1',
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        },
+    },
+'ip': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'http://127.0.0.1:6379/4',
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        },
+    },
+	
+}

@@ -12,7 +12,7 @@
             <div class="carousel-inner col-lg-12">
                 <div class="item active">
                     <img class="img-responsive" src="/static/imgs/index1.png" alt="专业的服务商">
-                    <div id="contact-box">
+                    <div id="contact-link">
                         <p>精准数据</p>
                         <hr>
                         <p id="index-slogon">专业数据服务商</p>
@@ -90,28 +90,60 @@
 
         </div>
     </div>
-    <div id="service" class="container-fluid">
-        <div id="service-process">
+    <div id="service" class="container-fluid" style="padding: 0px">
 
             <div class="container-fluid" id="service-box">
-                <div class="title col-md-5"><p>如何定制您的专属服务</p>
-                    <p><a>订制服务类型</a></p></div>
+                <div class="title col-md-5" style="margin-top: 50px"><p>如何定制您的专属服务</p>
+                </div>
+                <div class="col-sm-offset-2 col-sm-5 container-fluid" style="padding: 0px;">
+                    <div id="myCarousel1" class="carousel slide ">
 
-                <div id="service-type" class="col-md-7">
-                    <div class="container-fluid">
-                        <div class=" container-fluid col-sm-1"><a>语音</a></div>
-                        <div class=" container-fluid col-sm-1"><a>图片</a></div>
-                        <div class=" container-fluid col-sm-1"><a>文本</a></div>
-                        <div class=" container-fluid col-sm-1"><a>其他</a></div>
-                    </div>
-                    <div style="border: whitesmoke solid 1px" id="voice-box">
-                        语音采集：方言语类、语音内容、场景类别等
-                        语音标注：噪音标注(ASR)、发音人角色标注等
+                        <div class="carousel-inner" >
+                            <div class="item active">
+                                <div  class="desc" >
+                                    <h3>语音</h3>
+                                    <p> 语音采集：方言语类、语音内容、场景类别等</p>
+                                    <p> 语音标注：噪音标注(ASR)、发音人角色标注等</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class=" desc" >
+                                    <h3>文本</h3>
+                                    <p> 文本标注：文本标注包括文本注音、文本预料情感色彩标注，平行语料标注等。</p>
+                                    <p> 文本抓取：Web、App各大平台文本，包括新闻、小说、火车票等</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="desc">
+                                    <h3>图片</h3>
+                                    <p> 图片采集：人脸、表情、手势等人体图像，手写体、行为轨迹、地图位置、图形符号、家具构造图片、特定场景等</p>
+                                    <p>图片标注：图中字标注、手写标注，人物表情标注等。</p>
+                                    <p> 图片抓取：Web、APP各大平台图片，包括百度图片、花瓣网、堆糖网等。</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="desc">
+                                    <h3>其他</h3>
+                                    <p> 我们可以根据客户需求提供定制化服务，以满足训练模型及技术建模等研究的需要。</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 轮播（Carousel）导航 -->
+                        <a class="left carousel-control" href="#myCarousel1" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel1" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
                     </div>
                 </div>
+
+
             </div>
-        </div>
-        {#        <img src="/static/imgs/service-back.jpg">#}
+
+
     </div>
     <div class="scence-box container">
         <!-- 服务的公司 -->
@@ -143,5 +175,17 @@
             </div>
         </div>
     </div>
+{% endblock %}
+{% block script %}
+    <script type="text/javascript">
+
+  function bind_contact_link() {
+
+      $('#contact-link').click(function () {
+          window.location.href='/contact';
+      });
+  }
+  bind_contact_link();
+    </script>
 {% endblock %}
 

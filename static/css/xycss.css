@@ -14,7 +14,8 @@ body {
 }
 
 body > nav {
-    background: linear-gradient(255deg, #000000,#245580);
+    opacity: 0.7;
+    background: linear-gradient(255deg, #000000, #245580);
     border-bottom-width: 0px !important;
     background-size: 100% !important;
 }
@@ -53,7 +54,7 @@ nav > div .container-fluid {
 
 }
 
-#contact-box {
+#contact-link {
     position: absolute;
     top: 15%;
     left: 30%;
@@ -61,18 +62,24 @@ nav > div .container-fluid {
 
 }
 
-#contact-box a {
+#contact-link a {
     text-decoration: none;
     color: white;
 }
 
-#contact-box p {
+#contact-link p {
     font-size: 30px;
     opacity: 0.8;
     font-weight: lighter;
 }
 
-#contact-box div {
+.c2 div {
+    margin-top: 20px;
+    color: red;
+    font-size: 20px;
+}
+
+#contact-link div {
     padding: 0px;
     height: 40px;
     width: 200px;
@@ -126,14 +133,26 @@ nav > div .container-fluid {
     border: 1px lightgrey solid;
 }
 
-.service-box {
-    text-align: center;
+#service-box {
+    /*text-align: center;*/
     margin-top: 50px;
-    padding: 20px;
+    padding: 10px;
+    color: white;
+}
+
+#myCarousel1 {
+    height: 300px;
+    width: 500px;
+    padding: 0px;
 }
 
 .log-box {
     margin-top: 50px;
+}
+
+#myCarousel1 .carousel-inner .item {
+
+    margin-top: 60px;
 }
 
 #myCarousel div div img {
@@ -166,13 +185,30 @@ nav > div .container-fluid {
 }
 
 #footer {
-    opacity: 0.9;
+    position: relative;
     margin-top: 100px;
-    background: linear-gradient(255deg, #000000, #333333);
     padding-top: 30px;
-    color: #CCCCFF;
-
+    color: #FFFFFF;
     padding-bottom: 30px;
+}
+
+#footer-back {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    background: black;
+
+}
+
+#footer-model {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    color: white;
 }
 
 #record {
@@ -198,8 +234,9 @@ nav > div .container-fluid {
 }
 
 #service {
-    background: #336666;
-    opacity: 0.7;
+    background: linear-gradient(255deg, #2b669a, #5bc0de);
+
+    opacity: 0.9;
     text-align: center;
     padding: 0px;
     margin-top: 50px;
@@ -220,43 +257,31 @@ nav > div .container-fluid {
 
 }
 
-#service-box {
-    margin-top: 100px;
-    color: white;
-    font-size: 20px;
-}
-
 #service-box a {
     color: white;
     text-decoration: none;
 }
 
-#service-type div {
-    text-align: left;
-    padding: 0px;
-}
-
-#service-type div div {
-    margin-right: 10px;
-    text-align: center;
-}
-
-#service-type div span {
-    margin-right: 10px;
-
-}
-
-/*#service img {*/
-/*margin: 0px;*/
-/*height: 100%;*/
-/*width: 100%;*/
-/*opacity: 0.3;*/
-/*z-index: -1;*/
-/*position: absolute;*/
-/*top: 0px;*/
-/*left: 0px;*/
-
+/*#service-type div {*/
+/*padding: 0px;*/
 /*}*/
+/*#service-type div p{*/
+/*margin: 5px;*/
+/*}*/
+
+/*#service-type div span {*/
+/*margin-right: 10px;*/
+/*}*/
+.desc {
+    margin: 20px;
+    padding-left: 30px;
+    font-size: 15px;
+    text-align: left;
+}
+
+.desc h4 {
+    margin-bottom: 15px;
+}
 
 #img-header {
     margin-top: -10px;
@@ -310,33 +335,86 @@ nav > div .container-fluid {
     color: black;
     line-height: 60px;
 }
-#filter-box{
+
+#filter-box {
     padding-top: 20px;
     margin-top: 80px;
     border: 1px solid gray;
 }
-.filter-option{
+
+#filter-box > div > div.col-lg-1 {
+    border-right: lightgray 1px solid;
+}
+
+#filter-box > div {
+    margin-bottom: 10px;
+}
+
+#all-data {
+    font-size: 10px;
+    margin-bottom: 20px;
+}
+
+#all-data a {
+    text-decoration: none;
 
 }
-.service-type {
-    margin-bottom: 50px;
-    height: 400px;
-    margin-top: 50px;
+
+.dropdown {
+    position: relative !important;
 }
-.big-option-box{
+
+.dropdown-content {
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 0px;
+    z-index: 1;
+    height: auto;
+    text-align: left;
+}
+
+.dropdown-content div {
+    display: block;
+    margin: 0px;
+    padding: 0px;
+    background-color: #f9f9f9;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.drop-show {
+    display: none;
+
+}
+
+/*.service-type {*/
+/*margin-bottom: 50px;*/
+/*height: 400px;*/
+/*margin-top: 50px;*/
+/*}*/
+
+.big-option-box {
     padding: 0px;
 }
-#more-option a{
+
+#more-option a {
     text-decoration: none;
 }
-.filter-option  div{
-display:inline-block;
+
+.filter-option div {
+    padding: 0px;
+    display: inline-block;
     text-align: center;
     font-size: 10px;
-    width:auto;
-    height: 30px;
+    width: auto;
+    /*height: 30px;*/
     margin-right: 20px;
 }
+
 .box-c a {
     color: black;
     text-decoration: none;
@@ -364,6 +442,9 @@ div .service-detail p {
     position: fixed;
     right: 0px;
     top: 40%;
+    width: 50px;
+    height: 150px;
+    /*background:#31b0d5;*/
 }
 
 .consult {
@@ -372,17 +453,39 @@ div .service-detail p {
     margin-bottom: 20px;
     position: relative;
     font-size: 10px;
+    text-align: center;
 }
 
 .consult-detail {
+    padding: 10px 10px 10px 30px;
+    text-align: left;
+    height: 150px;
+    width: 180px;
+    top: 0px;
     position: absolute;
-
-    color: blue;
+    /*color: blue;*/
     right: 50px;
+    background: whitesmoke;
+}
+
+.consult-detail h4 {
+    color: #3399CC;
+}
+
+.consult-detail hr {
+    color: black;
+    margin: 2px;
+}
+
+#side-bar p {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 18px;
+    color: black;
 }
 
 .consult img {
-    height: 100%;
+    height: auto;
     width: 100%;
 }
 
@@ -439,11 +542,17 @@ div .service-detail p {
 
 #data-box a {
     text-decoration: none;
-
 }
 
-.data-list {
+#data-list {
     font-size: 15px;
+    position: relative;
+    min-height: 500px;
+}
+
+#display-box {
+    margin-top: 40px;
+    padding: 0px;
 }
 
 #data-type hr {
@@ -452,27 +561,42 @@ div .service-detail p {
 }
 
 #ranking-box {
-    background: lightgrey;
-    min-height: 500px;
-    padding: 20px;
+    background: lightyellow;
+    min-height: 200px;
+    padding: 15px;
+    text-align: center;
+}
+
+#ranking-box div {
+    padding-bottom: 10px;
 }
 
 #ranking-list {
     padding: 10px 20px 10px 20px;
 }
 
-.data-detail {
-    min-height: 20px;
+#custom-made {
+    margin-top: 10px;
+    background: linear-gradient(255deg, #99CCCC, #CCCCFF);
+    text-align: center;
+    min-height: 400px;
+    padding-top: 100px;
+    fill-opacity: initial;
+
+}
+
+#custom-made h4 {
+    margin-top: 20px;
 }
 
 .top3 {
-
     background: #FF9999;
 }
 
 p span span {
     margin-right: 10px;
     width: 20px;
+    background: #F5F5F5;
     display: inline-block;
 }
 
@@ -480,16 +604,51 @@ p span span {
     height: 300px;
 }
 
+.model {
+    position: absolute;
+    opacity: 0.1;
+    top: 0px;
+    left: 0px;
+    height: 350px;
+    width: 100%;
+    background: white;
+}
+
+.join-us {
+    height: 300px;
+    text-align: center;
+    font-size: 100px;
+    padding-top: 40px;
+    color: white;
+    margin-top: 50px;
+    background-image: url("/static/imgs/job-back.png");
+    background-repeat: no-repeat;
+}
+
 .job-box {
     border: 1px solid #99CC99;
     margin-top: 100px;
 }
 
+.job-detail p {
+    font-size: 20px
+}
+
+.job-detail button {
+    background: orange;
+    margin-top: 20px
+}
+
+.job-box {
+    background: linear-gradient(185deg, #94b1df, #4569a1);
+}
+
 .job-box div {
-    height: 300px;
+
     border-right: 1px solid #99CC99;
     margin-top: 50px;
     font-size: 30px;
+    padding-bottom: 20px;
 }
 
 .job-box .job-title {
@@ -503,11 +662,40 @@ p span span {
     text-align: center;
 }
 
+#download-bread {
+    min-height: 50px;
+    background: #F5F5F5;
+    margin-top: 50px;
+    line-height: 50px;
+}
+
+#data-heat {
+    height: 40px;
+    background: #F5F5F5;
+    font-size: 15px;
+    color: blue;
+    margin-top: 10px;
+    line-height: 40px;
+}
+
+#data-heat span {
+    margin-right: 20px;
+}
+
+#data-detail, #download-addr {
+    margin-top: 30px;
+}
+
+#data-detail div {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 #team-intro {
 
     height: 300px;
     width: 100%;
-    border: 1px solid #009966;
+    /*border: 1px solid #009966;*/
 }
 
 #team-detail {
@@ -515,6 +703,10 @@ p span span {
 
     width: 100%;
     border: 1px solid #336633;
+}
+
+#team {
+    background: linear-gradient(230deg, blue, black);;
 }
 
 #map {
@@ -530,9 +722,12 @@ iframe {
 
 .form-group {
     margin-top: 20px;
+    position: relative;
+
 }
 
 .form-group input {
+    margin-top: 5px;
     height: 50px;
 }
 
@@ -561,4 +756,80 @@ form textarea {
     padding: 10px;
     background: #CCCCCC;
     margin-bottom: 40px;
+}
+
+#vcode input[name='vcode'] {
+    width: 50%;
+}
+
+#codeimg {
+    height: 50px;
+    width: 100px;
+    /*position: absolute;*/
+    /*top: 0px;*/
+    /*right:100px;*/
+}
+
+.warning {
+    border: 1px red solid;
+}
+
+.success {
+    border: 1px green solid;
+}
+
+.reg-box {
+    margin-top: 40px;
+    background: whitesmoke;
+
+    -webkit-border-radius: 3%;
+    -moz-border-radius: 3%;
+    border-radius: 3%;
+
+}
+#rsubmit{
+    margin-top: 20px;
+}
+
+.reg-box .title {
+    font-size: 30px;
+}
+
+#send-pcode {
+    font-size: 15px;
+    text-align: center;
+    line-height: 50px;
+    margin-top: 5px;
+    background: lightgrey;
+}
+
+.c1 {
+    position: fixed;
+    width: 500px;
+    height: 300px;
+    left: 50%;
+    top: 40%;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    opacity: 0.3;
+    z-index: 9;
+    margin-left: -250px;
+    margin-top: -200px;
+}
+
+.c2 {
+    width: 500px;
+    height: 200px;
+    text-align: center;
+    position: fixed;
+    left: 50%;
+    top: 40%;
+    margin-left: -250px;
+    margin-top: -200px;
+    z-index: 10;
+}
+.c2 p{
+    margin-top: 50px;
+    font-size: 15px;
 }

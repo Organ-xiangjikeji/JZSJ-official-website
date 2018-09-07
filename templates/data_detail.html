@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>数据详情</title>
+{% endblock %}
+{% block body %}
+    <div id="download-bread" style="">
+        <ol class="breadcrumb col-lg-offset-1">
+            <li><a href="/free_data">数据集下载</a></li>
+            <li><a href="/free_data?industry={{ data.industry.uid }}">{{ data.industry }}</a></li>
+            <li class="active">{{ data.name }}</li>
+        </ol>
+    </div>
+    <div id="data-box" class="container">
+        <div class="col-lg-3 col-sm-3">
+            <img src="{{ data.head.url }}" style="height:200px;width: 100%">
+        </div>
+        <div class="col-lg-7 col-lg-offset-1 col-sm-7" style="text-align: left;padding-left: 20px">
+
+            <h3>{{ data.name }}</h3>
+            <div><p><b>数据描述：</b>{{ data.desc }}</p></div>
+            <div class="btn pull-right" style="height:40px;width:20%;background:lightblue;line-height:30px;">立刻下载</div>
+
+        </div>
+
+    </div>
+    <div id="data-heat" class="container">
+        <div><span>下载量{{ data.downloads }}</span><span>|</span><span>浏览量{{ data.pageviews }}</span><span>数据大小:{{ data.file.size  |filesizeformat }}bytes</span></div>
+    </div>
+    <div id="data-detail" class="container">
+    <h4>数据详情</h4>
+    <div>{{ data.desc }}</div>
+    <p><i>此数据仅用于研究，不可商用</i></p>
+    </div>
+    <hr style="border: 2px;width: 100%">
+    <div id="download-addr" class="container">
+     <h4>下载地址</h4>
+{#        <button id="download">download</button>#}
+        <div><a id='file_addr' href="/download/{{ data.uid }}" >点击这里</a></div>
+    </div>
+{% endblock %}
+{% block script %}
+    <script type="text/javascript">
+    $('#download').click(function () {
+        console.log('okok')
+
+        $.ajax({
+            url:$('#file_addr').attr('href'),
+             type: 'GET',
+            success:function (arg) {
+
+
+            }
+        })
+        {#window.open($('#file_addr').attr('href'), '_blank')#}
+    });
+
+
+    </script>
+{% endblock %}
