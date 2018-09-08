@@ -53,7 +53,7 @@ def free_data(request):
 	                                          'myquery': myquery,
 	                                          'pg': pg})
 	# response.delete_cookie('filters')
-	response.set_cookie('filters',myquery.filters)
+	# response.set_cookie('filters',myquery.filters,max_age=-1)
 	return response
 
 

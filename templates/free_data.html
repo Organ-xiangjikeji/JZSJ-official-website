@@ -145,17 +145,16 @@
             </div>
         </div>
     </div>
-<div class="sadfasdfasd">
-{{ request.cookies }}
-{% for item in request.session.filters %}
-    {{ item }}----{{ item.id }}
-{% endfor %}
+<div class="">
+{#{{ request.COOKIES }}#}
+
 </div>
     <div class="container " id="display-box">
         <div class="container-fluid col-lg-8 " id="data-list">
             <div class="col-lg-12  container-fluid " id="all-data">
                 <div class="col-lg-1" style="padding-left: 8px">全部</div>
                 <div class="col-lg-11  filter-option ">
+                <!---
                     {% if myquery.industry %}
                         <div><a>{{ myquery.industry }}</a>
 
@@ -166,7 +165,6 @@
                             
                         </div>
                     {% endif %}
-
                     {% if myquery.sub_industry %}
                         <div><a>{{ myquery.sub_industry }}</a>
                             <a href="?industry={{ myquery.industry.uid }}&sub_industry=0&source={{ myquery.source.id }}&type={{ myquery.type.id }}&status={{ myquery.status }}&dys={{ myquery.dys }}&province={{ myquery.province.id }}&size={{ myquery.size }}"><span
@@ -206,6 +204,14 @@
                             <a href="?industry={{ myquery.industry.uid }}&sub_industry={{ myquery.sub_industry.id }}&source={{ myquery.source.id }}&type={{ myquery.type.id }}&status={{ myquery.status }}&dys={{ myquery.dys }}&province={{ myquery.province.id }}&size=0"><span
                                     class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></div>
                     {% endif %}
+--->{% for i in request.session.filters %}
+      <div><a>{{ i |slice:"1:2" | first}}</a>
+
+      <a href="?{% for item in request.session.filters %}{% if item != i %}{{ item |first }}={{ item | last}}&{% endif %}{% endfor %}">
+          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+            </div>
+{% endfor %}
+
 
                     <div class="col-lg-2 pull-right"><a href="/free_data">清空</a></div>
 
