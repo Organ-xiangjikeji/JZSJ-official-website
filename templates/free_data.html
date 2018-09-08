@@ -154,57 +154,8 @@
             <div class="col-lg-12  container-fluid " id="all-data">
                 <div class="col-lg-1" style="padding-left: 8px">全部</div>
                 <div class="col-lg-11  filter-option ">
-                <!---
-                    {% if myquery.industry %}
-                        <div><a>{{ myquery.industry }}</a>
-
-                            <a href="?industry=0&sub_industry={{ myquery.sub_industry.id }}&source={{ myquery.source.id }}
-                        &type={{ myquery.type.id }}&status={{ myquery.status }}&dys={{ myquery.dys }}
-                        &province={{ myquery.province.id }}&size={{ myquery.size }}">
-                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
-                            
-                        </div>
-                    {% endif %}
-                    {% if myquery.sub_industry %}
-                        <div><a>{{ myquery.sub_industry }}</a>
-                            <a href="?industry={{ myquery.industry.uid }}&sub_industry=0&source={{ myquery.source.id }}&type={{ myquery.type.id }}&status={{ myquery.status }}&dys={{ myquery.dys }}&province={{ myquery.province.id }}&size={{ myquery.size }}"><span
-                                    class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
-                            >>
-                        </div>
-                    {% endif %}
-                    {% if myquery.source %}
-                        <div><a>{{ myquery.source }}</a>
-                            <a href="?industry={{ myquery.industry.uid }}&sub_industry={{ myquery.sub_industry.id }}&source=0&type={{ myquery.type.id }}&status={{ myquery.status }}&dys={{ myquery.dys }}&province={{ myquery.province.id }}&size={{ myquery.size }}"><span
-                                    class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></div>
-                    {% endif %}
-                    {% if myquery.type %}
-                        <div><a>{{ myquery.type }}</a>
-                            <a href="?industry={{ myquery.industry.uid }}&sub_industry={{ myquery.sub_industry.id }}&source={{ myquery.source.id }}&type=0&status={{ myquery.status }}&dys={{ myquery.dys }}&province={{ myquery.province.id }}&size={{ myquery.size }}"><span
-                                    class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></div>
-                    {% endif %}
-                    {% if myquery.province %}
-                        <div><a>{{ myquery.province }}</a><a
-                                href="?industry={{ myquery.industry.uid }}&sub_industry={{ myquery.sub_industry.id }}&source={{ myquery.source.id }}&type={{ myquery.type.id }}&status={{ myquery.status }}&dys={{ myquery.dys }}&province=0&size={{ myquery.size }}"><span
-                                class="glyphicon glyphicon-remove" aria-hidden="true"  style="color: gainsboro"></span></a></div>
-                    {% endif %}
-                    {% if myquery.status %}
-
-                        <div><a>{{ myquery.status_text }}</a>
-                            <a href="?industry={{ myquery.industry.uid }}&sub_industry={{ myquery.sub_industry.id }}&source={{ myquery.source.id }}&type={{ myquery.type.id }}&status=0&dys={{ myquery.dys }}&province={{ myquery.province.id }}&size={{ myquery.size }}"><span
-                                    class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
-                        </div>
-                    {% endif %}
-                    {% if myquery.dys %}
-                        <div><a>{{ myquery.dys_text }}</a><a
-                                href="?industry={{ myquery.industry.uid }}&sub_industry={{ myquery.sub_industry.id }}&source={{ myquery.source.id }}&type={{ myquery.type.id }}&status={{ myquery.status }}&province={{ myquery.province.id }}&size={{ myquery.size }}&dys=0"><span
-                                class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></div>
-                    {% endif %}
-                    {% if myquery.size %}
-                        <div><a>{{ myquery.size_text }}</a>
-                            <a href="?industry={{ myquery.industry.uid }}&sub_industry={{ myquery.sub_industry.id }}&source={{ myquery.source.id }}&type={{ myquery.type.id }}&status={{ myquery.status }}&dys={{ myquery.dys }}&province={{ myquery.province.id }}&size=0"><span
-                                    class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></div>
-                    {% endif %}
---->{% for i in request.session.filters %}
+              
+                    {% for i in request.session.filters %}
       <div><a>{{ i |slice:"1:2" | first}}</a>
 
       <a href="?{% for item in request.session.filters %}{% if item != i %}{{ item |first }}={{ item | last}}&{% endif %}{% endfor %}">
