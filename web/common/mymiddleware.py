@@ -1,6 +1,5 @@
 from django.utils.deprecation import MiddlewareMixin
 from web.common.redis_op import ip_conn
-from web.common.log import logger
 from django.shortcuts import render, HttpResponse, redirect
 import time
 print(time.time())

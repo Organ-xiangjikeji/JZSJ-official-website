@@ -1,13 +1,10 @@
 from django.shortcuts import   redirect
 from web import models
 from web.common.redis_op import user_conn
-from web.common.log import logger
 
 def urecord(func):
 	def inner(request, uid):
-		print(dir(request.session))
-		print('hello',request.session.has_key('user'))
-		print(request.session.has_key('is_logint'))
+		
 		if not request.session.has_key('is_login'):
 			return redirect('/register?next=/data/' + uid)
 		data = None

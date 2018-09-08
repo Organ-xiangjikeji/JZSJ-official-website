@@ -17,7 +17,6 @@ def get_urecord():
 			logger.error(e)
 		
 		for k in keys:
-			print(name,k)
 			try:
 				industry_id = int(k)
 			except Exception as e:

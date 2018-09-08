@@ -5,7 +5,6 @@ from web import models
 import logging
 
 logger = logging.getLogger('django')
-print('loggerid',id(logger))
 # 10进制转换36进制
 def hex36(num):
 	key = '1qaz2wssxcde34rfvbgt56yhnmju78iklo9p0'
@@ -37,6 +36,9 @@ def getId():
  
 
 class MyPagenator(object):
+	"""
+	分页
+	"""
 	num = 10
 	plist_len = 9
 	

@@ -154,16 +154,14 @@
             <div class="col-lg-12  container-fluid " id="all-data">
                 <div class="col-lg-1" style="padding-left: 8px">全部</div>
                 <div class="col-lg-11  filter-option ">
-              
+
                     {% for i in request.session.filters %}
-      <div><a>{{ i |slice:"1:2" | first}}</a>
+            <div><a>{{ i |slice:"1:2" | first}}</a>
 
       <a href="?{% for item in request.session.filters %}{% if item != i %}{{ item |first }}={{ item | last}}&{% endif %}{% endfor %}">
           <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
             </div>
 {% endfor %}
-
-
                     <div class="col-lg-2 pull-right"><a href="/free_data">清空</a></div>
 
                     <div class="col-lg-2 pull-right">共{{ pg.queryset.count }}{% if not pg %}0{% endif %}条数据</div>
