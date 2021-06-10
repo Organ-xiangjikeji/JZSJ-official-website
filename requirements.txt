@@ -1,7 +1,7 @@
 captcha==0.2.4
 carioca==1.0.0
 cycler==0.10.0
-Django==2.0.5
+Django==2.2.24
 kiwisolver==1.0.1
 numpy==1.15.1
 Pillow==5.2.0
