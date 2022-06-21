@@ -3,7 +3,7 @@ carioca==1.0.0
 cycler==0.10.0
 Django==2.0.5
 kiwisolver==1.0.1
-numpy==1.15.1
+numpy==1.22.0
 Pillow==5.2.0
 post==1.0.1
 public==1.0.2
